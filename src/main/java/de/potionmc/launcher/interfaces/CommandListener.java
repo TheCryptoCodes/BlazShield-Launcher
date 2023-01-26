@@ -64,7 +64,7 @@ public class CommandListener {
                         try {
                             //   Runtime.getRuntime().exec("java -Xms" + 125 + "M -Xmx" + 256 + "M -jar BlazShield.jar");
                             CommandListener.this.process = Runtime.getRuntime().exec("java -Xms" + CommandListener.this.minMemory + "M -Xmx" + CommandListener.this.maxMemory + "M -jar BlazShield.jar", (String[]) null, new File(System.getProperty("user.dir") + CommandListener.this.LobbyPath));
-                            CommandListener.this.process = Runtime.getRuntime().exec("java -Xms" + CommandListener.this.minMemory + "M -Xmx" + CommandListener.this.maxMemory + "M -jar BlazShield.jar", (String[]) null, new File(System.getProperty("user.dir") + CommandListener.this.ProxyPath));
+                           // CommandListener.this.process = Runtime.getRuntime().exec("java -Xms" + CommandListener.this.minMemory + "M -Xmx" + CommandListener.this.maxMemory + "M -jar BlazShield.jar", (String[]) null, new File(System.getProperty("user.dir") + CommandListener.this.ProxyPath));
                             new Loggers(LoggersType.INFO, Main.useColorSystem, "Der Server wurde erfolgreich gestartet");
                         } catch (IOException e) {
                             throw new RuntimeException(e);
