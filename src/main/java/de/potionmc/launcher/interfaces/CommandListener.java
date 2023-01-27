@@ -60,6 +60,9 @@ public class CommandListener {
                     } else if (anway.equalsIgnoreCase("stop")) {
                         new Loggers(LoggersType.INFO, Main.useColorSystem, "Der Server wurde erfolgreich gestoppt");
                         System.exit(0);
+                        for (int i = 0; i != 200; i++) {
+                            System.out.println(" ");
+                    }
                     } else if (anway.equalsIgnoreCase("start")) {
                         try {
                             //   Runtime.getRuntime().exec("java -Xms" + 125 + "M -Xmx" + 256 + "M -jar BlazShield.jar");

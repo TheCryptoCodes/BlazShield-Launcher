@@ -6,8 +6,10 @@ import de.potionmc.launcher.commandinterface.LoggersType;
 import de.potionmc.launcher.configuration.ConfigHandler;
 import de.potionmc.launcher.configuration.entrys.SettingsEntry;
 import de.potionmc.launcher.interfaces.CommandListener;
+import de.potionmc.launcher.interfaces.URLListener;
 
 import java.io.File;
+import java.io.IOException;
 
 //Author Louispix
 //Uhr zeit 14:07
@@ -54,17 +56,30 @@ public class Main {
                 "    | |_) | | __ _ ___| (___ | |__  _  ___| | __| |\n" +
                 "    |  _ <| |/ _` |_  /\\___ \\| '_ \\| |/ _ \\ |/ _` |\n" +
                 "    | |_) | | (_| |/ / ____) | | | | |  __/ | (_| |\n" +
-                "    |____/|_|\\__,_/___|_____/|_| |_|_|\\___|_|\\__,_|§7 [SANDSTONE-0.0.1]\n" +
+                "    |____/|_|\\__,_/___|_____/|_| |_|_|\\___|_|\\__,_| [SANDSTONE-0.0.1]\n" +
                 "                                                \n" +
                 "                                                \n" +
                 "   <!> Thank you for using BlazShield for your Network\n" +
                 "   <!> Our Support can you find - https://discord.blazmc.de/\n\n\n\n" +
-                "   The MineStom Spigot, is coded by Louispix§8[!]\n" +
-                "   there could be bugs, the version is in alpha§8[!]\n" +
-                "   The project is also bungee cord capable§8[!]\n" +
+                "   The MineStom Spigot, is coded by Louispix[!]\n" +
+                "   there could be bugs, the version is in alpha[!]\n" +
+                "   The project is also bungee cord capable[!]\n" +
                 " \n  " +
                 "  \n " +
                 "_________________________________________________________________________________________________________\n");
+
+
+        try {
+            URLListener.saveUrl("./launch/Lobby/BlazShield.jar", "http://45.93.250.252/BlazShield.jar");
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+
+        try {
+            URLListener.saveUrl("./launch/Proxy/BlazShield.jar", "http://45.93.250.252/BungeeShield.jar");
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
 
 
         SettingsEntry entry = new SettingsEntry();
