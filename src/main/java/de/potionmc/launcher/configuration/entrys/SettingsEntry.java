@@ -10,9 +10,16 @@ public class SettingsEntry implements IConfig {
     private Integer  maxMemory;
     private Integer minMemory;
 
-    public SettingsEntry(Integer maxMemory, Integer minMemory) {
+
+    private String Task;
+    private String Node;
+
+    public SettingsEntry(Integer maxMemory, Integer minMemory, String task, String node) {
         this.maxMemory = maxMemory;
         this.minMemory = minMemory;
+
+        this.Node = node;
+        this.Task = task;
 
     }
     public SettingsEntry() {}
@@ -21,5 +28,12 @@ public class SettingsEntry implements IConfig {
     }
     public Integer getMinMemory() {
         return minMemory;
+    }
+
+    public String getTask() {
+        return Task;
+    }
+    public String getNode() {
+        return Node;
     }
 }

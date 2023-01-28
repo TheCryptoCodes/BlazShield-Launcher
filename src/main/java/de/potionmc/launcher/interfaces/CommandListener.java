@@ -50,6 +50,7 @@ public class CommandListener {
                 this.maxMemory = maxMemory;
                 //   ConsoleSender sender = new ConsoleSender();
 
+
                 MinecraftServer minecraftServer = new MinecraftServer();
 
                 while (scanner.hasNext()) {
@@ -61,7 +62,7 @@ public class CommandListener {
                         new Loggers(LoggersType.INFO, Main.useColorSystem, "Der Server wurde erfolgreich gestoppt");
                         System.exit(0);
                         for (int i = 0; i != 200; i++) {
-                            System.out.println(" ");
+                            System.out.println(" " + i);
                     }
                     } else if (anway.equalsIgnoreCase("start")) {
                         try {

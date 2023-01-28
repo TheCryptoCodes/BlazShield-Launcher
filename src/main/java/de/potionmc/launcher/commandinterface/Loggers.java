@@ -33,7 +33,9 @@ public class Loggers {
       if (type == LoggersType.SERVICEADD)
         System.out.println("[\033[39m" + sdf.format(Calendar.getInstance().getTime()) + "\033[0m" + "] " + "\033[36m" + "SERVICE-ADD" + "\033[0m" + " | " + msg); 
       if (type == LoggersType.SERVICEREM)
-        System.out.println("[\033[39m" + sdf.format(Calendar.getInstance().getTime()) + "\033[0m" + "] " + "\033[36m" + "SERVICE-RM" + "\033[0m" + " | " + msg); 
+        System.out.println("[\033[39m" + sdf.format(Calendar.getInstance().getTime()) + "\033[0m" + "] " + "\033[36m" + "NETWORKING" + "\033[0m" + " | " + msg);
+      if (type == LoggersType.HELP)
+        System.out.println("[\033[39m" + sdf.format(Calendar.getInstance().getTime()) + "\033[0m" + "] " + "\033[36m" + "HELP" + "\033[0m" + " | " + msg);
       if (type == LoggersType.DOWNLOADER)
         System.out.println("[\033[39m" + sdf.format(Calendar.getInstance().getTime()) + "\033[0m" + "] " + "\033[36m" + "Loader" + "\033[0m" + " | " + msg); 
       if (type == LoggersType.SERVICECON)

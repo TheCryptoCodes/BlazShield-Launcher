@@ -15,14 +15,20 @@ import java.io.IOException;
 //Uhr zeit 14:07
 public class Main {
 
-
+    Loggers logger;
     private static Main instance;
 
 
     public static boolean useColorSystem;
     public static HashHandler hashedHandler;
 
+
+
     public static void main(String[] args) {
+
+
+
+
 
         // new CloudMainSetup("manager");
 
@@ -46,7 +52,9 @@ public class Main {
             e.printStackTrace();
         }
         if (!new File("./config.json").exists()) {
-            SettingsEntry entry = new SettingsEntry(512, 256);
+            SettingsEntry entry1 = new SettingsEntry();
+            SettingsEntry entry;
+            entry = new SettingsEntry(512, 256 ,entry1.getTask(), entry1.getNode());
             new ConfigHandler("./config.json").save(entry);
         }
 
@@ -59,15 +67,10 @@ public class Main {
                 "    | |_) | | (_| |/ / ____) | | | | |  __/ | (_| |\n" +
                 "    |____/|_|\\__,_/___|_____/|_| |_|_|\\___|_|\\__,_| [SANDSTONE-0.0.1]\n" +
                 "                                                \n" +
-                "                                                \n" +
-                "   <!> Thank you for using BlazShield for your Network\n" +
-                "   <!> Our Support can you find - https://discord.blazmc.de/\n\n\n\n" +
-                "   The MineStom Spigot, is coded by Louispix[!]\n" +
-                "   there could be bugs, the version is in alpha[!]\n" +
-                "   The project is also bungee cord capable[!]\n" +
-                " \n  " +
-                "  \n " +
                 "_________________________________________________________________________________________________________\n");
+
+
+
 
 
         try {
@@ -77,17 +80,33 @@ public class Main {
             throw new RuntimeException(e);
         }
 
+        a("everything is being prepared...");
+        a("an instance of the Manager is executed");
+        b("a new node called InternalNode wants to connect");
+        h("type 'start' to start proxy and lobby");
+        h("type 'help' to see the help list");
 
 
 
-
-    SettingsEntry entry = new SettingsEntry();
+        SettingsEntry entry = new SettingsEntry();
         commandListener.InitComamnd(256,512);
 
 
     }
     public static Main getInstance() {
         return instance;
+    }
+
+    public Loggers getLogger() {
+        return this.logger;
+    }
+
+    private static void a(String message) {
+        new Loggers(LoggersType.INFO, Main.useColorSystem, message);
+    }    private static void b(String message) {
+        new Loggers(LoggersType.SERVICEREM, Main.useColorSystem, message);
+    }private static void h(String message) {
+        new Loggers(LoggersType.HELP, Main.useColorSystem, message);
     }
 
 
