@@ -57,7 +57,7 @@ public class CommandListener {
                     String anway = scanner.nextLine();
                     if (anway.equalsIgnoreCase("version")) {
                         new Loggers(LoggersType.INFO, Main.useColorSystem, "Der Server Laüft über BlazShield");
-                        new Loggers(LoggersType.INFO, Main.useColorSystem, "Version [SANDSTEIN-0.0.1]");
+                        new Loggers(LoggersType.INFO, Main.useColorSystem, "Version [OBSIDIAN-0.0.1]");
                     } else if (anway.equalsIgnoreCase("stop")) {
                         new Loggers(LoggersType.INFO, Main.useColorSystem, "Der Server wurde erfolgreich gestoppt");
                         System.exit(0);
@@ -75,10 +75,20 @@ public class CommandListener {
                         }
 
                     } else if (anway.equalsIgnoreCase("help")) {
-                        new Loggers(LoggersType.INFO, Main.useColorSystem, "Hilfe seite [1]");
-                        new Loggers(LoggersType.INFO, Main.useColorSystem, "/stop");
-                        new Loggers(LoggersType.INFO, Main.useColorSystem, "/start");
-                        new Loggers(LoggersType.INFO, Main.useColorSystem, "/version");
+                        new Loggers(LoggersType.INFO, Main.useColorSystem, "The following Commands are registered:");
+                        new Loggers(LoggersType.INFO, Main.useColorSystem, " ");
+
+                        new Loggers(LoggersType.INFO, Main.useColorSystem, "/version Aliases: [version, ver] - the Cloud version is online!");
+                        new Loggers(LoggersType.INFO, Main.useColorSystem, "/start Aliases: [start, run] - the service started command!");
+                        new Loggers(LoggersType.INFO, Main.useColorSystem, "/stop Aliases: [stop, shutdown] - Cloud stop command!");
+                        new Loggers(LoggersType.INFO, Main.useColorSystem, " ");
+
+                        new Loggers(LoggersType.INFO, Main.useColorSystem, "Threads: " + Runtime.getRuntime().availableProcessors());
+                        new Loggers(LoggersType.INFO, Main.useColorSystem, "OS System: " + System.getProperty("os.name"));
+                        new Loggers(LoggersType.INFO, Main.useColorSystem, "Support: http://discord.blazmc.de");
+
+
+
 
                     } else {
                         new Loggers(LoggersType.WARN, Main.useColorSystem, "The command was not found please type HELP to get help");

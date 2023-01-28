@@ -25,7 +25,7 @@ public class Loggers {
       if (type == LoggersType.INFO)
         System.out.println("[\033[39m" + sdf.format(Calendar.getInstance().getTime()) + "\033[0m" + "] " + "\033[32m" + "INFO" + "\033[0m" + "| " + msg);
       if (type == LoggersType.LOGO)
-      System.out.println("\033[32m" + msg + "\033[0m");
+      System.out.println("\033[36m" + msg + "\033[0m");
       if (type == LoggersType.WARN)
         System.out.println("[\033[39m" + sdf.format(Calendar.getInstance().getTime()) + "\033[0m" + "] " + "\033[33m" + "WARN" + "\033[0m" + " | " + msg); 
       if (type == LoggersType.ERROR)
