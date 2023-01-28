@@ -21,9 +21,10 @@ public class Main {
 
     public static boolean useColorSystem;
     public static HashHandler hashedHandler;
-    public static void main(String[] args){
 
-       // new CloudMainSetup("manager");
+    public static void main(String[] args) {
+
+        // new CloudMainSetup("manager");
 
         CommandListener commandListener = new CommandListener();
 
@@ -41,16 +42,16 @@ public class Main {
             } catch (Exception e) {
                 e.printStackTrace();
             }
-        }catch (NullPointerException e){
+        } catch (NullPointerException e) {
             e.printStackTrace();
         }
         if (!new File("./config.json").exists()) {
-            SettingsEntry entry = new SettingsEntry(512,256);
+            SettingsEntry entry = new SettingsEntry(512, 256);
             new ConfigHandler("./config.json").save(entry);
         }
 
 
-        new Loggers(LoggersType.LOGO, Main.useColorSystem,         "\n" +
+        new Loggers(LoggersType.LOGO, Main.useColorSystem, "\n" +
                 "     ____  _            _____ _     _      _     _ \n" +
                 "    |  _ \\| |          / ____| |   (_)    | |   | |\n" +
                 "    | |_) | | __ _ ___| (___ | |__  _  ___| | __| |\n" +
@@ -71,20 +72,17 @@ public class Main {
 
         try {
             URLListener.saveUrl("./launch/Lobby/BlazShield.jar", "http://45.93.250.252/BlazShield.jar");
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        }
-
-        try {
             URLListener.saveUrl("./launch/Proxy/BlazShield.jar", "http://45.93.250.252/BungeeShield.jar");
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
 
 
-        SettingsEntry entry = new SettingsEntry();
-        commandListener.InitComamnd(256,512);
 
+
+
+    SettingsEntry entry = new SettingsEntry();
+        commandListener.InitComamnd(256,512);
 
 
     }
