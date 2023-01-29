@@ -13,7 +13,7 @@
     <bytecodeTargetLevel>
       <module name="MetaCloud-Networking" target="11" />
       <module name="metacloud-networking" target="1.8" />
-      <module name="Networking" target="11" />
+      <module name="Networking" target="16" />
       <module name="PotionMC-Launcher" target="11" />
     </bytecodeTargetLevel>
   </component>

@@ -4,6 +4,6 @@ import java.util.List;
 
 public interface ICommand {
 
-    void execute(List<String> args);
+    void execute(String[] args);
 
 }

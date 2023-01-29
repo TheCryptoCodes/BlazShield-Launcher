@@ -1,11 +1,14 @@
 package de.potionmc.launcher;
 
 import de.potionmc.launcher.cloud.CommandManager;
+import de.potionmc.launcher.cloud.commands.Help_CMD;
+import de.potionmc.launcher.cloud.commands.Stop_CMD;
+import de.potionmc.launcher.cloud.commands.Version_CMD;
 import de.potionmc.launcher.commandinterface.HashHandler;
 import de.potionmc.launcher.commandinterface.Loggers;
 import de.potionmc.launcher.commandinterface.LoggersType;
-import de.potionmc.launcher.interfaces.Setup;
 import de.potionmc.launcher.interfaces.URLListener;
+
 import lombok.SneakyThrows;
 import org.jline.reader.EndOfFileException;
 import org.jline.reader.LineReader;
@@ -14,8 +17,6 @@ import org.jline.terminal.Terminal;
 import org.jline.terminal.TerminalBuilder;
 
 import java.io.*;
-import java.util.ArrayList;
-import java.util.List;
 
 //Author Louispix
 //Uhr zeit 14:07
@@ -30,7 +31,7 @@ public class Main {
 
     public static HashHandler hashedHandler;
 
-    private static final String PREFIX = "\033[36mBlazShield \033[37mÂ» ";
+    private static final String PREFIX = "\033[36mBlazShield \033[37m» ";
 
 
     private static volatile LineReader lineReader;
@@ -39,6 +40,12 @@ public class Main {
 
 @SneakyThrows
     public static void main(String[] args)  {
+ //       new de.potionmc.networking.NettyDriver();
+//
+//
+ //   NettyDriver.getInstance().nettyServer = new NettyServer();
+ //   NettyDriver.getInstance().nettyServer.bind(2002).start();
+ //   NettyDriver.getInstance().packetDriver.handelListener(new NetworkHandler());
 
 
         Process process = new Process() {
@@ -76,7 +83,11 @@ public class Main {
 
 
         CommandManager commandManager = new CommandManager();
-        commandManager.register("help", "can you see all cloud commands", new Setup());
+        commandManager.register("help", "can you see all cloud commands", new Help_CMD());
+        commandManager.register("version", "can you see all cloud commands", new Version_CMD());
+        commandManager.register("ver", "can you see all cloud commands", new Version_CMD());
+        commandManager.register("stop", "can you see all cloud commands", new Stop_CMD());
+        commandManager.register("shutdown", "can you see all cloud commands", new Stop_CMD());
 
         String ProxyPath;
         String LobbyPath;
@@ -114,13 +125,13 @@ public class Main {
                 try {
                     command = lineReader.readLine(PREFIX);
                     String finalCommand = command.replace(PREFIX, "");
-                    List<String> arguments = new ArrayList<>(List.of(finalCommand.split(" ")));
-                    arguments.remove(PREFIX);
-                    String commandName;
-                    commandName = arguments.get(0);
-                    arguments.remove(commandName);
+                    String[] args1 = finalCommand.split(" ");
+                    String[] astring = new String[args1.length - 1];
+                    System.arraycopy(args1, 1, astring, 0, args1.length - 1);
+                    String[] arguments = astring;
+                    String commandName = args1[0];
                     if (!commandManager.exists(commandName)) {
-                        System.out.println(commandManager.getCommandsInString());
+                        new Loggers(LoggersType.WARN, Main.useColorSystem, "The command was not found please type HELP to get help");
                     } else {
                         commandManager.execute(commandName, arguments);
                     }

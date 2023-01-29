@@ -60,7 +60,7 @@ public class CommandListener {
                         new Loggers(LoggersType.INFO, Main.useColorSystem, "Version [OBSIDIAN-0.0.1]");
                     } else if (anway.equalsIgnoreCase("stop")) {
                         new Loggers(LoggersType.INFO, Main.useColorSystem, "Der Server wurde erfolgreich gestoppt");
-                        System.exit(0);
+                        System.exit(-0);
                         for (int i = 0; i != 200; i++) {
                             System.out.println(" " + i);
                     }

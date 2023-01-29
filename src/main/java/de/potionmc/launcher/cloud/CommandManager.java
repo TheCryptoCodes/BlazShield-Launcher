@@ -26,7 +26,7 @@ public class CommandManager {
         return false;
     }
 
-    public void execute(String name, List<String> args) {
+    public void execute(String name, String[] args) {
         Command command = commands.get(name);
         command.getICommand().execute(args);
     }
